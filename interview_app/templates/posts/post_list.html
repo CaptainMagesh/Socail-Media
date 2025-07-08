@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Posts{% endblock %}
+
+{% block content %}
+    <h2 class="text-xl font-bold">Recent Posts</h2>
+    {% for post in posts %}
+        <div class="border p-4 mt-4 bg-white">
+            <h3 class="text-lg font-bold">{{ post.title }}</h3>
+            <p>{{ post.content }}</p>
+            <p class="text-gray-500 text-sm">Posted on {{ post.created_at }}</p>
+        </div>
+    {% empty %}
+        <p>No posts yet.</p>
+    {% endfor %}
+{% endblock %}
